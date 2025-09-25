@@ -11,5 +11,11 @@
   "assets": {
     "directory": "./dist/client",
     "not_found_handling": "single-page-application"
-  }
+  },
+  "kv_namespaces": [
+    {
+      "binding": "RSVPS",
+      "id": "194cbd9e8f194798a0f99dfa6956d6d4"
+    }
+  ]
 }
