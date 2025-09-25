@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,46 +9,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Playfair+Display:wght@400;700&display=swap');
-        
+
         body {
             font-family: 'Playfair Display', serif;
             background-color: #f8f3e6;
             color: #3a3226;
         }
-        
+
         .medieval {
             font-family: 'MedievalSharp', cursive;
         }
-        
+
         .scroll-container {
             scroll-snap-type: y mandatory;
             height: 100vh;
             overflow-y: scroll;
         }
-        
+
         .scroll-section {
             scroll-snap-align: start;
             min-height: 100vh;
         }
-        
+
         .parchment {
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.3 0"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.3"/></svg>');
             background-color: #f5e8c9;
             border: 1px solid #d4b483;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
-        
+
         .border-gold {
             border: 3px solid transparent;
             border-image: linear-gradient(to right, #d4af37, #f9d423, #d4af37);
             border-image-slice: 1;
         }
-        
+
         .wax-seal {
             position: relative;
             display: inline-block;
         }
-        
+
         .wax-seal::after {
             content: '';
             position: absolute;
@@ -57,17 +58,17 @@
             border-radius: 50%;
             top: -30px;
             right: -30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             z-index: 10;
         }
-        
+
         @media (max-width: 768px) {
             .scroll-container {
                 scroll-snap-type: none;
                 height: auto;
                 overflow-y: visible;
             }
-            
+
             .scroll-section {
                 min-height: auto;
                 padding: 2rem 0;
@@ -75,9 +76,10 @@
         }
     </style>
 </head>
+
 <body class="bg-amber-50">
     <script type="module" crossorigin src="https://concierge.digitalwisdom.ai/chat-v1.js"></script>
-<web-concierge id="NjAyOWRmZjBhNmZhOWY2YTAxNTNiNGIwMmE3Y2ViMzUtaHR0cHM6Ly9ub3JjYWxyZW5mYWlyZS5jb20="></web-concierge>
+    <web-concierge id="NjAyOWRmZjBhNmZhOWY2YTAxNTNiNGIwMmE3Y2ViMzUtaHR0cHM6Ly9ub3JjYWxyZW5mYWlyZS5jb20="></web-concierge>
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-amber-900 text-amber-50 shadow-lg">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -103,26 +105,28 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="scroll-section pt-24 pb-12 md:pt-32 px-4 bg-gradient-to-b from-amber-900 to-amber-700 text-amber-50">
+    <section id="about"
+        class="scroll-section pt-24 pb-12 md:pt-32 px-4 bg-gradient-to-b from-amber-900 to-amber-700 text-amber-50">
         <div class="container mx-auto max-w-5xl">
             <div class="parchment p-8 md:p-12 rounded-lg border-gold relative overflow-hidden">
                 <div class="absolute top-0 right-0 wax-seal">
-                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl z-20">KD</div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-xl z-20">
+                        KD</div>
                 </div>
-                
+
                 <h1 class="medieval text-4xl md:text-6xl text-center mb-6 text-amber-900">
                     <span class="block">Hear Ye! Hear Ye!</span>
                     <span class="text-3xl md:text-5xl">Diana, Brad and Kelly's 400th Birthday Celebration</span>
                 </h1>
-                
+
                 <div class="flex justify-center mb-8">
                     <div class="h-1 w-24 bg-amber-700"></div>
                 </div>
-                
+
                 <p class="text-xl md:text-2xl text-center mb-8 text-amber-800">
                     Join us for a weekend of merriment, feasting, and Renaissance revelry in the fair lands of Gilroy!
                 </p>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-amber-900">
                     <div class="text-center p-4 bg-amber-100 rounded-lg">
                         <i class="fas fa-calendar-alt text-3xl mb-2 text-amber-700"></i>
@@ -137,10 +141,10 @@
                     <div class="text-center p-4 bg-amber-100 rounded-lg">
                         <i class="fas fa-coins text-3xl mb-2 text-amber-700"></i>
                         <h3 class="font-bold text-lg mb-2">Cost</h3>
-                        <p>$300-$500 pp* sliding scale</p>
+                        <p>$200-$300 pp* sliding scale</p>
                     </div>
                 </div>
-                
+
                 <div class="mt-8 text-sm text-amber-600 italic">
                     *Amanda (and anyone able) to cover extra cost
                 </div>
@@ -154,7 +158,7 @@
             <h2 class="medieval text-3xl md:text-5xl text-center mb-12 text-amber-900">
                 <i class="fas fa-scroll mr-3"></i> Royal Schedule
             </h2>
-            
+
             <!-- Timeline -->
             <div class="space-y-8">
                 <!-- Day 1 -->
@@ -164,7 +168,8 @@
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="bg-amber-50 p-4 rounded">
-                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-sun mr-2"></i> Morning/Afternoon</h4>
+                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-sun mr-2"></i>
+                                Morning/Afternoon</h4>
                             <ul class="space-y-2">
                                 <li class="flex items-start">
                                     <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
@@ -172,39 +177,45 @@
                                 </li>
                                 <li class="flex items-start">
                                     <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
-                                    <span>Downtown Gilroy stroll: Explore the Historic Paseo, grab coffee, pop into Ashford's Heirlooms or Garbo's Antiques, and visit the Gilroy Museum</span>
+                                    <span>Downtown Gilroy stroll: Explore the Historic Paseo, grab coffee, pop into
+                                        Ashford's Heirlooms or Garbo's Antiques, and visit the Gilroy Museum</span>
                                 </li>
                                 <li class="flex items-start">
                                     <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
-                                    <span>Optional: Visit a local fruit stand or Garlic World for snacks or ingredients</span>
+                                    <span>Optional: Visit a local fruit stand or Garlic World for snacks or
+                                        ingredients</span>
                                 </li>
                             </ul>
                         </div>
                         <div class="bg-amber-50 p-4 rounded">
-                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-cloud-sun mr-2"></i> Afternoon/Evening</h4>
+                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-cloud-sun mr-2"></i>
+                                Afternoon/Evening</h4>
                             <ul class="space-y-2">
                                 <li class="flex items-start">
                                     <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
-                                    <span>Possible wine tasting at Solis Winery, Sarah's Vineyard, or Satori Cellars</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
-                                    <span>Dinner out at Mamma Mia's (Mediterranean) or Westside Grill (casual steakhouse)</span>
+                                    <span>Possible wine tasting at Solis Winery, Sarah's Vineyard, or Satori
+                                        Cellars</span>
                                 </li>
                             </ul>
                         </div>
                         <div class="bg-amber-50 p-4 rounded">
-                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-moon mr-2"></i> Evening</h4>
+                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-moon mr-2"></i> Evening
+                            </h4>
                             <ul class="space-y-2">
                                 <li class="flex items-start">
                                     <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
                                     <span>Games and Crafting activities to prep for Ren Fair</span>
                                 </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
+                                    <span>Themed birthday dinner prepared for our birthday darlings with music, treats,
+                                        and custom cocktails</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Day 2 -->
                 <div class="parchment p-6 md:p-8 rounded-lg border-gold">
                     <h3 class="medieval text-2xl md:text-3xl mb-4 text-amber-800 border-b border-amber-200 pb-2">
@@ -216,7 +227,8 @@
                             <ul class="space-y-2">
                                 <li class="flex items-start">
                                     <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
-                                    <span>Spend the full day at the Northern California Renaissance Faire in Hollister</span>
+                                    <span>Spend the full day at the Northern California Renaissance Faire in
+                                        Hollister</span>
                                 </li>
                                 <li class="flex items-start">
                                     <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
@@ -225,16 +237,9 @@
                             </ul>
                         </div>
                         <div class="bg-amber-50 p-4 rounded">
-                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-moon mr-2"></i> Evening</h4>
+                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-moon mr-2"></i> Evening
+                            </h4>
                             <ul class="space-y-2">
-                                <li class="flex items-start">
-                                    <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
-                                    <span>Return to Airbnb for a private chef-prepared dinner</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
-                                    <span>Themed birthday dinner prepared for our birthday darlings with music, treats, and custom cocktails</span>
-                                </li>
                                 <li class="flex items-start">
                                     <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
                                     <span>End with a fireplace moment, s'mores, and stargazing</span>
@@ -243,7 +248,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Day 3 -->
                 <div class="parchment p-6 md:p-8 rounded-lg border-gold">
                     <h3 class="medieval text-2xl md:text-3xl mb-4 text-amber-800 border-b border-amber-200 pb-2">
@@ -251,7 +256,8 @@
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="bg-amber-50 p-4 rounded">
-                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-sun mr-2"></i> Morning</h4>
+                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-sun mr-2"></i> Morning
+                            </h4>
                             <ul class="space-y-2">
                                 <li class="flex items-start">
                                     <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
@@ -264,7 +270,8 @@
                             </ul>
                         </div>
                         <div class="bg-amber-50 p-4 rounded">
-                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-cloud-sun mr-2"></i> Afternoon</h4>
+                            <h4 class="font-bold text-lg mb-2 text-amber-700"><i class="fas fa-cloud-sun mr-2"></i>
+                                Afternoon</h4>
                             <ul class="space-y-2">
                                 <li class="flex items-start">
                                     <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
@@ -272,7 +279,8 @@
                                 </li>
                                 <li class="flex items-start">
                                     <i class="fas fa-arrow-right text-xs mt-1 mr-2 text-amber-600"></i>
-                                    <span>Options include Clos LaChance, Fortino, or Kirigin Cellars, all with beautiful settings and relaxed vineyard atmospheres</span>
+                                    <span>Options include Clos LaChance, Fortino, or Kirigin Cellars, all with beautiful
+                                        settings and relaxed vineyard atmospheres</span>
                                 </li>
                             </ul>
                         </div>
@@ -288,7 +296,7 @@
             <h2 class="medieval text-3xl md:text-5xl text-center mb-12">
                 <i class="fas fa-home mr-3"></i> Castle Lodging
             </h2>
-            
+
             <div class="parchment p-6 md:p-8 rounded-lg border-gold text-amber-900">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
@@ -298,7 +306,7 @@
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-start">
                                 <i class="fas fa-bed text-lg mr-3 mt-1 text-amber-700"></i>
-                                <span>6 Bedrooms, up to 13 people</span>
+                                <span>6 Bedrooms, 8 beds/baths, up to 14 people</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-utensils text-lg mr-3 mt-1 text-amber-700"></i>
@@ -306,21 +314,23 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-drumstick-bite text-lg mr-3 mt-1 text-amber-700"></i>
-                                <span>1 chef prepared dinner on Oct 19th</span>
+                                <span>1 chef prepared dinner on Oct 17th</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-coins text-lg mr-3 mt-1 text-amber-700"></i>
-                                <span>$300 - $500 pp* sliding scale for 2 nights</span>
+                                <span>$200-300 pp* sliding scale for 2 nights</span>
                             </li>
                         </ul>
-                        
-                        <a href="https://www.airbnb.com/l/vA7JqJyu" target="_blank" class="inline-block bg-amber-700 hover:bg-amber-600 text-amber-50 font-bold py-3 px-6 rounded-lg transition duration-300">
+
+                        <a href="https://www.airbnb.com/l/vA7JqJyu" target="_blank"
+                            class="inline-block bg-amber-700 hover:bg-amber-600 text-amber-50 font-bold py-3 px-6 rounded-lg transition duration-300">
                             <i class="fas fa-external-link-alt mr-2"></i> View Airbnb Listing
                         </a>
                     </div>
                     <div class="flex items-center justify-center">
                         <div class="bg-amber-100 p-2 rounded-lg shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Airbnb" class="rounded-lg w-full h-auto max-h-64 object-cover">
+                            <img src="https://assets3.thrillist.com/v1/image/3187859/414x310/crop;webp=auto;jpeg_quality=60;progressive.jpg"
+                                alt="Airbnb" class="rounded-lg w-full h-auto max-h-64 object-cover">
                         </div>
                     </div>
                 </div>
@@ -334,32 +344,31 @@
             <h2 class="medieval text-3xl md:text-5xl text-center mb-12 text-amber-900">
                 <i class="fas fa-quill mr-3"></i> RSVP Scroll
             </h2>
-            
+
             <div class="parchment p-6 md:p-8 rounded-lg border-gold max-w-3xl mx-auto">
                 <h3 class="medieval text-2xl md:text-3xl mb-6 text-center text-amber-800">
                     By Royal Decree
                 </h3>
-                
+
                 <div class="text-lg mb-8 text-amber-900">
-                    <p class="mb-4">We beseech thee to respond with haste, so proper arrangements may be made for this grand celebration in thine honor.</p>
-                    <p class="font-bold text-center text-xl mt-6">Kindly RSVP to Amanda or Kelly as soon as possible</p>
+                    <p class="mb-4">We beseech thee to respond with haste, so proper arrangements may be made for this
+                        grand celebration in thine honor.</p>
+                    <p class="font-bold text-center text-xl mt-6">Kindly RSVP as soon as possible</p>
                 </div>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                     <div class="bg-amber-50 p-4 rounded-lg text-center">
                         <i class="fas fa-user-circle text-4xl mb-3 text-amber-700"></i>
-                        <h4 class="font-bold text-lg mb-2">Amanda</h4>
-                        <a href="https://venmo.com/Amanda-Hoffman-5?txn=pay&amount=400" class="text-amber-700 hover:text-amber-900">@Amanda-Hoffman-5</a>
-                    </div>
-                    <div class="bg-amber-50 p-4 rounded-lg text-center">
-                        <i class="fas fa-user-circle text-4xl mb-3 text-amber-700"></i>
-                        <h4 class="font-bold text-lg mb-2">Kelly</h4>
-                        <a href="https://venmo.com/kellyjokes?txn=pay&amount=400" class="text-amber-700 hover:text-amber-900">@kellyjokes</a>
+                        <h4 class="font-bold text-lg mb-2">@kellyjokes</h4>
+                        <a href="https://venmo.com/kellyjokes?txn=pay&amount=200" class="text-amber-700 hover:text-amber-900">$200</a>
+                        <a href="https://venmo.com/kellyjokes?txn=pay&amount=250" class="text-amber-600 hover:text-amber-900">$250</a>
+                        <a href="https://venmo.com/kellyjokes?txn=pay&amount=300" class="text-amber-500 hover:text-amber-900">$300</a>
                     </div>
                 </div>
-                
+
                 <div class="mt-8 text-center">
-                    <button id="rsvp-button" class="bg-amber-700 hover:bg-amber-600 text-amber-50 font-bold py-3 px-8 rounded-lg transition duration-300 medieval text-lg">
+                    <button id="rsvp-button"
+                        class="bg-amber-700 hover:bg-amber-600 text-amber-50 font-bold py-3 px-8 rounded-lg transition duration-300 medieval text-lg">
                         <i class="fas fa-envelope mr-2"></i> Send Message
                     </button>
                 </div>
@@ -389,33 +398,59 @@
             <button id="close-modal" class="absolute top-4 right-4 text-amber-700 hover:text-amber-900 text-xl">
                 <i class="fas fa-times"></i>
             </button>
-            
+
             <h3 class="medieval text-2xl md:text-3xl mb-6 text-center text-amber-800">
                 Send Your RSVP
             </h3>
-            
+
             <form class="space-y-4">
                 <div>
                     <label for="name" class="block text-amber-800 mb-1">Your Name</label>
-                    <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    <input type="text" id="name" name="name" required
+                        class="w-full px-4 py-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500">
                 </div>
-                
+
                 <div>
                     <label for="email" class="block text-amber-800 mb-1">Email</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500">
                 </div>
-                
+
                 <div>
                     <label for="phone" class="block text-amber-800 mb-1">Phone</label>
-                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    <input type="tel" id="phone" name="phone"
+                        class="w-full px-4 py-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500">
                 </div>
-                
+
+                <div>
+                    <label class="block text-amber-800 mb-2">Accommodation Preference</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="accommodation" value="whole_weekend_bed" required
+                                class="mr-2 text-amber-700 focus:ring-amber-500">
+                            <span>In for the whole weekend w/ a bed</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="accommodation" value="couch_only" required
+                                class="mr-2 text-amber-700 focus:ring-amber-500">
+                            <span>I can survive on only a couch</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="accommodation" value="one_night_only" required
+                                class="mr-2 text-amber-700 focus:ring-amber-500">
+                            <span>I can only come one night</span>
+                        </label>
+                    </div>
+                </div>
+
                 <div>
                     <label for="message" class="block text-amber-800 mb-1">Message</label>
-                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                    <textarea id="message" name="message" rows="4"
+                        class="w-full px-4 py-2 border border-amber-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
                 </div>
-                
-                <button type="submit" class="w-full bg-amber-700 hover:bg-amber-600 text-amber-50 font-bold py-3 px-4 rounded transition duration-300">
+
+                <button type="submit"
+                    class="w-full bg-amber-700 hover:bg-amber-600 text-amber-50 font-bold py-3 px-4 rounded transition duration-300">
                     Send RSVP <i class="fas fa-paper-plane ml-2"></i>
                 </button>
             </form>
@@ -424,19 +459,19 @@
 
     <script>
         // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('menu-toggle').addEventListener('click', function () {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-                
+
                 // Close mobile menu if open
                 const menu = document.getElementById('mobile-menu');
                 if (!menu.classList.contains('hidden')) {
@@ -450,16 +485,16 @@
         const rsvpModal = document.getElementById('rsvp-modal');
         const closeModal = document.getElementById('close-modal');
 
-        rsvpButton.addEventListener('click', function() {
+            rsvpButton.addEventListener('click', function () {
             rsvpModal.classList.remove('hidden');
         });
 
-        closeModal.addEventListener('click', function() {
+            closeModal.addEventListener('click', function () {
             rsvpModal.classList.add('hidden');
         });
 
         // Close modal when clicking outside
-        rsvpModal.addEventListener('click', function(e) {
+            rsvpModal.addEventListener('click', function (e) {
             if (e.target === rsvpModal) {
                 rsvpModal.classList.add('hidden');
             }
@@ -467,26 +502,26 @@
 
         // Form submission
         const form = document.querySelector('#rsvp-modal form');
-        form.addEventListener('submit', async function(e) {
+            form.addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
-            
+
             const submitButton = form.querySelector('button[type="submit"]');
             const originalText = submitButton.innerHTML;
             submitButton.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin ml-2"></i>';
             submitButton.disabled = true;
-            
+
             try {
                 const response = await fetch('/api/rsvp', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
-                
+
                 const result = await response.json();
-                
+
                 if (result.success) {
                     alert('Thank you for your RSVP! We look forward to celebrating with you.');
                     rsvpModal.classList.add('hidden');
@@ -504,4 +539,5 @@
         });
     </script>
 </body>
+
 </html>

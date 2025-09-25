@@ -13,6 +13,7 @@ app.post("/api/rsvp", async (c) => {
       name: body.name,
       email: body.email,
       phone: body.phone,
+      accommodation: body.accommodation,
       message: body.message,
       timestamp: new Date().toISOString()
     };
@@ -31,6 +32,7 @@ app.post("/api/rsvp", async (c) => {
         <p><strong>Name:</strong> ${rsvpData.name}</p>
         <p><strong>Email:</strong> ${rsvpData.email}</p>
         <p><strong>Phone:</strong> ${rsvpData.phone || 'Not provided'}</p>
+        <p><strong>Accommodation:</strong> ${rsvpData.accommodation || 'Not specified'}</p>
         <p><strong>Message:</strong> ${rsvpData.message || 'No message'}</p>
         <p><strong>Timestamp:</strong> ${rsvpData.timestamp}</p>
       `
