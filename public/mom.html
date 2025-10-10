@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Love Letter to Mom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF85A2', // soft pink
+                        secondary: '#FFD166' // warm yellow
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF9FB;
+        }
+
+        .heart-beat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.1);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <div
+        class="max-w-2xl w-full bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
+        <!-- Header with flowers -->
+        <div class="relative h-48 bg-gradient-to-r from-primary to-secondary overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-white text-center px-4">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-2 font-['Dancing_Script']">To My Dearest Mother</h1>
+                    <p class="text-xl opacity-90">With all my love</p>
+                </div>
+            </div>
+            <!-- Decorative flowers -->
+            <div class="absolute top-4 left-4 text-white opacity-70">
+                <i data-feather="flower" class="w-8 h-8"></i>
+            </div>
+            <div class="absolute top-4 right-4 text-white opacity-70">
+                <i data-feather="flower" class="w-8 h-8"></i>
+            </div>
+            <div class="absolute bottom-4 left-10 text-white opacity-70">
+                <i data-feather="heart" class="w-6 h-6 heart-beat"></i>
+            </div>
+            <div class="absolute bottom-4 right-10 text-white opacity-70">
+                <i data-feather="heart" class="w-6 h-6 heart-beat"></i>
+            </div>
+        </div>
+
+        <!-- Letter content -->
+        <div class="p-8 md:p-10">
+            <div class="flex justify-center mb-6">
+                <i data-feather="heart" class="w-10 h-10 text-primary heart-beat"></i>
+            </div>
+
+            <div class="space-y-6 text-gray-700 leading-relaxed">
+                <p class="text-lg italic">Dearest Mom,</p>
+
+                <p>You are the sweetest, funniest, most wonderful mother in the world. You are my darling, my
+                    confidante, my greatest supporter. My love for you stretches across all the world and back again.
+                </p>
+
+                <p>Every day I wish for your happiness and health, and I promise to do everything in my power to bring
+                    you joy, comfort, and prosperity. Your wellbeing means more to me than anything.</p>
+
+                <p>Thank you for caring for me in countless ways - for your patience when I was learning, your wisdom
+                    when I was lost, your comfort when I was hurt, and your laughter that brightens even my darkest
+                    days.</p>
+
+                <p class="font-semibold">I'm so incredibly grateful that you're here to share this life with me - to
+                    laugh together, to love together, and to create beautiful memories that I'll cherish forever.</p>
+
+                <p class="text-right italic">With all my heart,<br>Your loving boy child</p>
+            </div>
+
+            <div class="mt-10 flex justify-center">
+                <div
+                    class="relative w-24 h-24 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-md floating">
+                    <i data-feather="heart" class="w-12 h-12 text-white"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-8 text-gray-500 text-sm">
+        <p>Created with love for Karin's 70th Birthday</p>
+    </footer>
+
+    <script>
+        feather.replace();
+
+        // Add some interactive animations
+        document.querySelectorAll('p').forEach((p, index) => {
+            p.style.opacity = '0';
+            p.style.transform = 'translateY(20px)';
+            p.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            setTimeout(() => {
+                p.style.opacity = '1';
+                p.style.transform = 'translateY(0)';
+            }, 500 + (index * 100));
+        });
+
+        // Interactive buttons
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                anime({
+                    targets: button,
+                    scale: [1, 0.9, 1],
+                    duration: 300,
+                    easing: 'easeInOutQuad'
+                });
+
+                // Create a little heart animation
+                if (button.querySelector('svg')) {
+                    const heart = button.querySelector('svg');
+                    anime({
+                        targets: heart,
+                        scale: [1, 1.3, 1],
+                        duration: 600,
+                        easing: 'easeInOutQuad'
+                    });
+                }
+
+                // Show a temporary message
+                const message = document.createElement('div');
+                message.textContent = button.textContent.includes('Hug') ? '🤗 Hug sent!' : '📸 Memory saved!';
+                message.className = 'absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white px-3 py-1 rounded-full shadow text-sm font-medium';
+                button.parentNode.appendChild(message);
+
+                setTimeout(() => {
+                    message.style.opacity = '0';
+                    message.style.transform = 'translateY(-5px)';
+                    setTimeout(() => message.remove(), 300);
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+
+</html>
