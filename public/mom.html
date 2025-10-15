@@ -140,6 +140,16 @@
     </footer>
 
     <script>
+        // Send email notification when page loads
+        fetch('/api/mom-visited', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).catch(error => {
+            console.log('Email notification failed:', error);
+        });
+
         feather.replace();
 
         // Add some interactive animations

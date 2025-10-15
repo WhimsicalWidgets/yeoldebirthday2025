@@ -4,6 +4,28 @@ const app = new Hono<{ Bindings: Env }>();
 
 app.get("/api/", (c) => c.json({ name: "Cloudflare" }));
 
+app.post("/api/mom-visited", async (c) => {
+  try {
+    const resend = new Resend(c.env.RESEND_API_KEY);
+    
+    await resend.emails.send({
+      from: 'Birthday Notification <noreply@webwisdom.ai>',
+      to: 'senorkaj@gmail.com',
+      subject: 'Mom page visited',
+      html: `
+        <h2>Mom Page Notification</h2>
+        <p>The /mom page was just loaded at ${new Date().toISOString()}</p>
+        <p>Someone is reading the love letter to mom! ❤️</p>
+      `
+    });
+    
+    return c.json({ success: true });
+  } catch (error) {
+    console.error("Error sending mom notification:", error);
+    return c.json({ success: false }, 500);
+  }
+});
+
 app.post("/api/rsvp", async (c) => {
   try {
     const body = await c.req.json();
