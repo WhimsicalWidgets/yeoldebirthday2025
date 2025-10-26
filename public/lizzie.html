@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lizzie - Halloween Nunnery</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .lizzie-page {
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+        }
+
+        .gothic-frame {
+            background: rgba(20, 20, 20, 0.95);
+            border: 3px solid #8b4513;
+            border-radius: 15px;
+            box-shadow:
+                0 0 30px rgba(255, 165, 0, 0.3),
+                inset 0 0 20px rgba(139, 69, 19, 0.2);
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gothic-frame::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #8b4513, #daa520, #8b4513, #daa520);
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        .gothic-title {
+            text-align: center;
+            color: #daa520;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+        }
+
+        .parchment-scroll {
+            background: rgba(245, 245, 220, 0.95);
+            border-radius: 10px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: inset 0 0 15px rgba(139, 69, 19, 0.3);
+            border: 2px solid #cd853f;
+            position: relative;
+        }
+
+        .parchment-scroll::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(160, 82, 45, 0.1) 0%, transparent 50%);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .message-content {
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+            color: #2f1b14;
+        }
+
+        .greeting {
+            font-size: 1.3rem;
+            color: #8b4513;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .message-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .message-content em {
+            color: #8b4513;
+            font-weight: bold;
+        }
+
+        .blessing {
+            font-style: italic;
+            text-align: right;
+            color: #8b4513 !important;
+            border-top: 1px solid rgba(139, 69, 19, 0.3);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .candles {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .candle {
+            width: 8px;
+            height: 60px;
+            background: linear-gradient(to bottom, #daa520 0%, #cd853f 100%);
+            border-radius: 4px;
+            position: relative;
+            animation: flicker 2s ease-in-out infinite alternate;
+        }
+
+        .candle::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #ffa500 0%, #ff4500 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 15px #ffa500;
+            animation: flame 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% {
+                box-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+            }
+
+            100% {
+                box-shadow: 0 0 15px rgba(255, 165, 0, 0.8);
+            }
+        }
+
+        @keyframes flame {
+            0% {
+                transform: translateX(-50%) scale(1);
+            }
+
+            100% {
+                transform: translateX(-50%) scale(1.1) translateY(-2px);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .gothic-frame {
+                padding: 2rem;
+            }
+
+            .gothic-title {
+                font-size: 2.5rem;
+            }
+
+            .parchment-scroll {
+                padding: 1.5rem;
+            }
+
+            .message-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lizzie-page">
+        <div class="gothic-frame">
+            <h1 class="gothic-title fade-in">Lizzie</h1>
+
+            <div class="parchment-scroll fade-in">
+                <div class="message-content">
+                    <p class="greeting">Dearest Lizzie,</p>
+
+                    <p>It was truly wonderful to see you. Your presence brought light to the shadows of this sacred
+                        Halloween evening.</p>
+
+                    <p>I must tell you about a film called <em>"Breathing In"</em> - I believe you would find it as
+                        captivating as I do.</p>
+
+                    <p>There is always too much to communicate and so little time, isn't there? Words feel inadequate
+                        for all the thoughts that swirl like autumn leaves in the mind.</p>
+
+                    <p>You are appreciated, and I would very much like to be your friend. In this digital age, we seek
+                        new ways to bridge the communication gaps between neurotypical and neurodivergent minds.</p>
+
+                    <p>I am working on tools to help with communication across the autism spectrum - creating bridges
+                        for those who experience the world differently. This humble page is but one example of how
+                        technology can serve as a medium to translate between different ways of thinking, feeling, and
+                        expressing ourselves. It's an attempt to reach across the neurological divide with intention,
+                        understanding, and care.</p>
+
+                    <p class="blessing">May the spirits of All Hallows' Eve guide your path,<br />
+                        With admiration and hope for friendship</p>
+                </div>
+            </div>
+
+            <div class="candles fade-in">
+                <div class="candle"></div>
+                <div class="candle"></div>
+                <div class="candle"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Stagger the fade-in animations
+        const elements = document.querySelectorAll('.fade-in');
+        elements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.3}s`;
+        });
+
+        // Add subtle parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const candles = document.querySelectorAll('.candle');
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+
+            candles.forEach((candle, index) => {
+                const offset = (index - 1) * 0.5;
+                candle.style.transform = `rotateY(${xAxis * offset}deg) rotateX(${yAxis * offset}deg)`;
+            });
+        });
+    </script>
+</body>
+
+</html>
