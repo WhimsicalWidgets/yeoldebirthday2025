@@ -26,6 +26,28 @@ app.post("/api/mom-visited", async (c) => {
   }
 });
 
+app.post("/api/lizzie-visited", async (c) => {
+  try {
+    const resend = new Resend(c.env.RESEND_API_KEY);
+    
+    await resend.emails.send({
+      from: 'Birthday Notification <noreply@webwisdom.ai>',
+      to: 'senorkaj@gmail.com',
+      subject: 'Lizzie page visited',
+      html: `
+        <h2>Lizzie Page Notification</h2>
+        <p>The /lizzie page was just loaded at ${new Date().toISOString()}</p>
+        <p>Someone is reading the Halloween nunnery message to Lizzie! 🎃🕯️</p>
+      `
+    });
+    
+    return c.json({ success: true });
+  } catch (error) {
+    console.error("Error sending lizzie notification:", error);
+    return c.json({ success: false }, 500);
+  }
+});
+
 app.post("/api/rsvp", async (c) => {
   try {
     const body = await c.req.json();

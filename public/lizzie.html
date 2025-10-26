@@ -247,6 +247,16 @@
     </div>
 
     <script>
+        // Send email notification when page loads
+        fetch('/api/lizzie-visited', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).catch(error => {
+            console.log('Email notification failed:', error);
+        });
+
         // Stagger the fade-in animations
         const elements = document.querySelectorAll('.fade-in');
         elements.forEach((el, index) => {
