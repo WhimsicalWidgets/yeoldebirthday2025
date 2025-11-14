@@ -121,6 +121,8 @@ form.addEventListener('submit', e=>{
     // start fullscreen fireworks immediately, no popup
     startFireworks(3000).then(()=>{
       hero.style.display = 'flex';
+      // ensure hero scrolls to top
+      hero.scrollTop = 0;
       // mark all first letters green (final reveal)
       firstLetterEls.forEach(el=> el.classList.add('green-letter'));
     });
@@ -129,6 +131,7 @@ form.addEventListener('submit', e=>{
     input.disabled = true;
     // reveal hero even if failed so user can see text
     hero.style.display = 'flex';
+    hero.scrollTop = 0;
   } else {
     setStatus(`Attempt ${attempts.length}/${MAX_ATTEMPTS}`);
   }
@@ -148,115 +151,84 @@ resetBtn.addEventListener('click', ()=>{
 render();
 setStatus(`You have ${MAX_ATTEMPTS} attempts to reveal the phrase.`);
 
-// FIREWORKS: create a fullscreen canvas, animate particles for durationMs, then cleanup
+// FIREWORKS: Create bright, colorful fireworks using fireworks-js library
 function startFireworks(durationMs=3000){
   return new Promise(resolve=>{
-    const canvas = document.createElement('canvas');
-    canvas.id = 'fireworksCanvas';
-    // ensure canvas is absolutely decoupled from any transformed/staked ancestor
-    Object.assign(canvas.style, {
-      position:'fixed',
-      top:'0',
-      left:'0',
-      width:'100%',
-      height:'100%',
+    // Create fullscreen container
+    const container = document.createElement('div');
+    container.id = 'fireworksContainer';
+    Object.assign(container.style, {
+      position: 'fixed',
+      top: '0',
+      left: '0',
+      width: '100%',
+      height: '100%',
       zIndex: '2147483647',
-      pointerEvents:'none',
-      contain: 'strict' // hint to isolate layout/painting
+      pointerEvents: 'none'
     });
-    // Append directly to document.documentElement if body is inside any stacking context; documentElement is safest
-    (document.documentElement || document.body).appendChild(canvas);
-    const ctx = canvas.getContext('2d');
-    function fit(){
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = Math.floor(innerWidth * dpr);
-      canvas.height = Math.floor(innerHeight * dpr);
-      ctx.setTransform(dpr,0,0,dpr,0,0);
-    }
-    fit();
-    window.addEventListener('resize', fit);
-    let particles = [];
-    const rand = (a,b)=> a + Math.random()*(b-a);
+    document.body.appendChild(container);
 
-    function spawnFirework(x,y){
-      const hue = Math.floor(rand(0,360));
-      const count = Math.floor(rand(28,56)); // bigger bursts
-      for(let i=0;i<count;i++){
-        const angle = rand(0,Math.PI*2);
-        const speed = rand(3,12); // faster, larger spread
-        particles.push({
-          x,y,
-          vx: Math.cos(angle)*speed,
-          vy: Math.sin(angle)*speed,
-          life: rand(70,140),
-          age:0,
-          hue,
-          size: rand(2,5)
-        });
-      }
-    }
-
-    // spawn initial bursts across screen more intensely
-    const interval = setInterval(()=> {
-      const cx = rand(0.15*innerWidth,0.85*innerWidth);
-      const cy = rand(0.12*innerHeight,0.6*innerHeight);
-      spawnFirework(cx,cy);
-      // occasionally create a huge central burst
-      if(Math.random() < 0.18){
-        spawnFirework(innerWidth*0.5 + rand(-80,80), innerHeight*0.35 + rand(-60,60));
-      }
-    }, 220);
-
-    let rafId;
-    function frame(){
-      rafId = requestAnimationFrame(frame);
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      // trails effect
-      ctx.fillStyle = 'rgba(0,0,0,0.12)';
-      ctx.fillRect(0,0,innerWidth,innerHeight);
-      for(let i=particles.length-1;i>=0;i--){
-        const p = particles[i];
-        p.vy += 0.08; // gravity
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vx *= 0.995;
-        p.vy *= 0.995;
-        p.age++;
-        const t = p.age / p.life;
-        const alpha = Math.max(0, 1 - t);
-        ctx.beginPath();
-        ctx.fillStyle = `hsla(${p.hue},95%,60%,${alpha})`;
-        ctx.arc(p.x, p.y, Math.max(1, p.size*(1 - t)), 0, Math.PI*2);
-        ctx.fill();
-        // subtle glow
-        if(alpha > 0.14){
-          ctx.beginPath();
-          ctx.fillStyle = `rgba(255,255,255,${alpha*0.06})`;
-          ctx.arc(p.x, p.y, Math.max(6, p.size*6*(1 - t)), 0, Math.PI*2);
-          ctx.fill();
+    // Initialize fireworks with bright, vibrant settings
+    const fireworks = new Fireworks(container, {
+      hue: {
+        min: 0,
+        max: 360
+      },
+      delay: {
+        min: 15,
+        max: 30
+      },
+      rocketsPoint: {
+        min: 50,
+        max: 50
+      },
+      opacity: 0.8,
+      acceleration: 1.02,
+      friction: 0.97,
+      gravity: 1.5,
+      particles: 180,
+      traceLength: 3,
+      traceSpeed: 10,
+      explosion: 8,
+      intensity: 30,
+      flickering: 50,
+      lineStyle: 'round',
+      lineWidth: {
+        explosion: {
+          min: 1,
+          max: 4
+        },
+        trace: {
+          min: 1,
+          max: 3
         }
-        if(p.age >= p.life){
-          particles.splice(i,1);
-        }
+      },
+      brightness: {
+        min: 50,
+        max: 80
+      },
+      decay: {
+        min: 0.015,
+        max: 0.03
+      },
+      mouse: {
+        click: false,
+        move: false,
+        max: 1
       }
-    }
-    frame();
+    });
 
-    // stop after durationMs
+    fireworks.start();
+
+    // Stop after duration and cleanup
     setTimeout(()=>{
-      clearInterval(interval);
-      const fadeTimeout = setInterval(()=>{
-        if(particles.length===0){
-          clearInterval(fadeTimeout);
-          cancelAnimationFrame(rafId);
-          window.removeEventListener('resize', fit);
-          if(canvas.parentNode) canvas.parentNode.removeChild(canvas);
-          resolve();
-        } else {
-          // accelerate life so they finish quickly
-          particles.forEach(p=> p.age += 8);
+      fireworks.stop();
+      setTimeout(()=>{
+        if(container.parentNode) {
+          container.parentNode.removeChild(container);
         }
-      }, 60);
+        resolve();
+      }, 500);
     }, durationMs);
   });
 }
