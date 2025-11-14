@@ -20,7 +20,8 @@
     }
     
     .container {
-      position: relative;
+      width: fit-content;
+      position: center;
       z-index: 10;
       min-height: 100vh;
       display: flex;
@@ -155,18 +156,11 @@
   <div id="fireworks-canvas"></div>
   
   <div class="container">
-    <div class="celebration-header">
-      <h1>🎉 Congratulations! 🎉</h1>
-      <p>You solved the puzzle! Here's your special birthday message:</p>
-    </div>
+
     
     <div class="poem-container">
-      <pre class="poem">"<span class="first">S</span>ending you the brightest wishes today.
-<span class="first">T</span>reasure every small, shining moment.
-<span class="first">A</span>rrive at the day with a hopeful smile.
-<span class="first">U</span>nderstand how loved you truly are.
-<span class="first">B</span>e ready to embrace gentle surprises.
-
+      <pre class="poem">
+<span class="first">S</span>ending you the brightest wishes today.
 <span class="first">O</span>verflowing joy is what I hope fills your day.
 <span class="first">M</span>ay laughter surround you from morning to night.
 <span class="first">E</span>very moment should feel warm and cherished.
@@ -195,82 +189,48 @@
 <span class="first">E</span>mbrace the moments that make your heart flutter.
 <span class="first">T</span>ake this day and make it beautifully yours."</pre>
     </div>
-    
-    <a href="julianneelizabethmcpaulson.html" class="back-button">← Back to Puzzle</a>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
-  <script>
-    // Initialize endless fireworks
-    const container = document.getElementById('fireworks-canvas');
-    
-    const fireworks = new Fireworks(container, {
-      hue: {
-        min: 0,
-        max: 360
-      },
-      delay: {
-        min: 20,
-        max: 40
-      },
+<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+<script>
+  const container = document.getElementById('fireworks-canvas')
+
+  const fireworks = new Fireworks.default(container, {
+    hue: { min: 0, max: 360 },
+    delay: { min: 15, max: 30 },
+    rocketsPoint: { min: 0, max: 100 },
+    opacity: 0.8,
+    acceleration: 1.03,
+    friction: 0.97,
+    gravity: 1.4,
+    particles: 160,
+    traceLength: 4,
+    traceSpeed: 12,
+    explosion: 7,
+    intensity: 35,
+    flickering: 50,
+    lineStyle: 'round',
+    lineWidth: {
+      explosion: { min: 1, max: 3 },
+      trace: { min: 1, max: 2 }
+    },
+    brightness: { min: 50, max: 80 },
+    decay: { min: 0.015, max: 0.03 },
+    mouse: { click: false, move: false, max: 1 }
+  })
+
+  fireworks.start()
+
+  setInterval(() => {
+    fireworks.updateOptions({
+      particles: 140 + Math.random() * 80,
+      intensity: 25 + Math.random() * 25,
       rocketsPoint: {
-        min: 50,
-        max: 50
-      },
-      opacity: 0.7,
-      acceleration: 1.02,
-      friction: 0.97,
-      gravity: 1.5,
-      particles: 150,
-      traceLength: 3,
-      traceSpeed: 10,
-      explosion: 6,
-      intensity: 25,
-      flickering: 40,
-      lineStyle: 'round',
-      lineWidth: {
-        explosion: {
-          min: 1,
-          max: 3
-        },
-        trace: {
-          min: 1,
-          max: 2
-        }
-      },
-      brightness: {
-        min: 40,
-        max: 70
-      },
-      decay: {
-        min: 0.015,
-        max: 0.03
-      },
-      mouse: {
-        click: false,
-        move: false,
-        max: 1
+        min: 0,
+        max: 100
       }
-    });
-    
-    // Start fireworks immediately and keep them running
-    fireworks.start();
-    
-    // Optional: Add some visual variety by occasionally changing settings
-    setInterval(() => {
-      fireworks.stop();
-      setTimeout(() => {
-        // Slightly randomize settings for variety
-        const randomIntensity = 20 + Math.random() * 15;
-        const randomParticles = 120 + Math.random() * 60;
-        
-        fireworks.updateOptions({
-          intensity: randomIntensity,
-          particles: randomParticles
-        });
-        fireworks.start();
-      }, 100);
-    }, 8000); // Change every 8 seconds
-  </script>
+    })
+  }, 6000)
+</script>
 </body>
 </html>
