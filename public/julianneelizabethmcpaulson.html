@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hidden Phrase Puzzle</title>
+  <link rel="stylesheet" href="jp.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero" id="hero" style="display:none">
+      <div class="images">
+        <img src="https://images.unsplash.com/photo-1514518175058-9e3f0f1b1eeb?q=80&w=800&auto=format&fit=crop" alt="cooking" />
+        <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=800&auto=format&fit=crop" alt="tomatoes" />
+        <img src="https://images.unsplash.com/photo-1562007907-11b2a4f3d63b?q=80&w=800&auto=format&fit=crop" alt="mayonnaise" />
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=800&auto=format&fit=crop" alt="knives" />
+        <img src="https://images.unsplash.com/photo-1532634896-26909d0d2f6f?q=80&w=800&auto=format&fit=crop" alt="baking dish" />
+      </div>
+      <div class="message">
+        <pre class="poem" id="poem">
+"<span class="first" data-pos="0">S</span>ending you the brightest wishes today.
+<span class="first" data-pos="1">T</span>reasure every small, shining moment.
+<span class="first" data-pos="2">A</span>rrive at the day with a hopeful smile.
+<span class="first" data-pos="3">U</span>nderstand how loved you truly are.
+<span class="first" data-pos="4">B</span>e ready to embrace gentle surprises.
+
+<span class="first" data-pos="5">O</span>verflowing joy is what I hope fills your day.
+<span class="first" data-pos="6">M</span>ay laughter surround you from morning to night.
+<span class="first" data-pos="7">E</span>very moment should feel warm and cherished.
+<span class="first" data-pos="8">T</span>reasure the smiles that come your way.
+<span class="first" data-pos="9">H</span>appiness suits you beautifully.
+<span class="first" data-pos="10">I</span> hope this year brings gentle magic.
+<span class="first" data-pos="11">N</span>othing would delight me more than seeing you shine.
+<span class="first" data-pos="12">G</span>o forward with all the confidence in your heart.
+
+<span class="first" data-pos="13">S</span>avour every sweet surprise you receive.
+<span class="first" data-pos="14">T</span>oday deserves to be unforgettable.
+<span class="first" data-pos="15">A</span>ll your hopes deserve room to grow.
+<span class="first" data-pos="16">U</span>plifting energy is headed your way.
+<span class="first" data-pos="17">B</span>e ready for wonderful things.
+
+<span class="first" data-pos="18">F</span>eel loved in every corner of your life.
+<span class="first" data-pos="19">O</span>pen yourself to the joy you've earned.
+<span class="first" data-pos="20">R</span>elish the warmth around you today.
+
+<span class="first" data-pos="21">M</span>ay comfort walk beside you in the year ahead.
+<span class="first" data-pos="22">Y</span>our kindness makes the world brighter.
+
+<span class="first" data-pos="23">S</span>mile wide, because you deserve it.
+<span class="first" data-pos="24">W</span>elcome the glow this new age brings.
+<span class="first" data-pos="25">E</span>very wish you make is worth believing in.
+<span class="first" data-pos="26">E</span>mbrace the moments that make your heart flutter.
+<span class="first" data-pos="27">T</span>ake this day and make it beautifully yours."</pre>
+      </div>
+    </section>
+
+    <section class="game" aria-label="Hidden phrase game">
+      <h2>Guess the hidden phrase</h2>
+      <p class="hint">Hidden phrase length: <span id="len"></span> characters (including spaces)</p>
+
+      <div id="grid" class="grid" aria-live="polite"></div>
+
+      <form id="guessForm" class="guess-form" autocomplete="off">
+        <input id="guessInput" type="text" inputmode="text" aria-label="Enter guess" placeholder="Type your guess here" />
+        <button id="guessBtn" type="submit">Guess</button>
+      </form>
+
+      <p id="status" class="status" role="status"></p>
+      <button id="resetBtn" class="reset">Reset</button>
+    </section>
+  </main>
+
+  <script type="module" src="jp.js"></script>
+</body>
+</html>

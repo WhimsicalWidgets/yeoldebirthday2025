@@ -1,0 +1,126 @@
+:root{
+  --bg:#fff9f4;
+  --card:#fff;
+  --accent:#c84b31;
+  --muted:#9a9a9a;
+  --green:#4caf50;
+  --yellow:#f0c419;
+  --grey:#d0d0d0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+html,body,#app{height:100%}
+body{
+  margin:0;background:var(--bg);color:#222;display:flex;align-items:center;justify-content:center;padding:14px;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.app{width:100%;max-width:900px}
+.hero{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;flex-wrap:wrap}
+.images{display:flex;gap:8px;flex:1;min-width:200px}
+.images img{width:64px;height:64px;object-fit:cover;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,0.08)}
+.message{flex:2;min-width:200px;background:var(--card);padding:10px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.05)}
+.poem{margin:0;font-size:12px;line-height:1.15;white-space:pre-wrap}
+
+.game{background:var(--card);padding:12px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.06)}
+.game h2{margin:0 0 8px 0;font-size:16px;color:var(--accent)}
+.hint{margin:0 0 8px 0;color:var(--muted);font-size:13px}
+
+.grid{display:flex;flex-direction:column;gap:6px;margin-bottom:10px;min-height:0}
+.row{display:flex;gap:6px;align-items:center;flex-wrap:nowrap}
+.cell{
+  min-width:16px;
+  height:auto;
+  padding:6px 6px;
+  border-radius:4px;
+  background:var(--grey);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:#fff;
+  font-size:12px;
+  line-height:1;
+  box-sizing:border-box;
+}
+.cell.space{background:transparent;color:#444;padding:6px 8px}
+.cell.green{background:var(--green)}
+.cell.yellow{background:var(--yellow);color:#222}
+.guess-form{display:flex;gap:8px}
+.guess-form input{flex:1;padding:10px;border:1px solid #e6e6e6;border-radius:8px;font-size:14px}
+.guess-form button{background:var(--accent);color:#fff;border:none;padding:10px 12px;border-radius:8px}
+.status{margin:8px 0;color:var(--muted);font-size:13px;min-height:18px}
+.reset{background:#eee;border:none;padding:8px 10px;border-radius:8px;font-size:13px}
+.first{font-weight:700}
+.green-letter{color:#fff;background:var(--green);padding:0 4px;border-radius:3px}
+#fireworksCanvas{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:2147483647; /* move to top of stack */
+  pointer-events:none;
+  mix-blend-mode:screen;
+  will-change:contents;
+}
+
+@media (max-width:420px){
+  .images img{width:52px;height:52px}
+  .cell{width:16px;height:26px;font-size:11px}
+  .poem{font-size:11px}
+}
+
+/* Fancy full-screen hero */
+.hero{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:60;
+  background: linear-gradient(180deg, rgba(255,250,246,1) 0%, rgba(255,244,238,1) 100%);
+  padding:40px;
+  box-sizing:border-box;
+  overflow:auto;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+.hero .images{position:absolute;right:24px;top:24px;opacity:0.18;filter:grayscale(30%);display:flex;gap:10px}
+.hero .images img{width:92px;height:92px;border-radius:12px;object-fit:cover;box-shadow:none}
+.message{background:transparent;padding:0;border-radius:0;box-shadow:none;flex:0 0 auto;max-width:900px;width:100%}
+.poem{
+  margin:0 auto;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size:20px;
+  line-height:1.45;
+  color:#2c2c2c;
+  text-align:left;
+  padding:44px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+  border-radius:14px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.12);
+}
+
+/* Style the first-letter tiles to resemble Wordle green */
+.first{
+  display:inline-block;
+  vertical-align:baseline;
+  margin-right:4px;
+  font-weight:800;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:#fff;
+  background:var(--green);
+  padding:6px 8px;
+  border-radius:6px;
+  letter-spacing:0.5px;
+  box-shadow: 0 4px 10px rgba(76,175,80,0.18), inset 0 -1px rgba(0,0,0,0.08);
+}
+
+/* ensure green-letter utility still applies for non-hero usage */
+.green-letter{color:#fff;background:var(--green);padding:0 4px;border-radius:3px}
+
+/* Responsive adjustments so hero fills screen nicely on mobile */
+@media (max-width:420px){
+  .hero{padding:18px}
+  .poem{font-size:16px;padding:20px;border-radius:10px}
+  .images img{width:64px;height:64px}
+  .cell{min-width:14px;padding:5px 6px;font-size:11px}
+}
