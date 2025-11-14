@@ -124,6 +124,9 @@ form.addEventListener('submit', e=>{
     firstLetterEls.forEach(el=> el.classList.add('green-letter'));
     // show win dialog
     winDialog.style.display = 'flex';
+    setTimeout(() => {
+  window.location.href = '/jpwin'
+}, 3000)
   } else if(attempts.length >= MAX_ATTEMPTS){
     setStatus('Out of attempts. The phrase was: "'+SECRET+'"');
     input.disabled = true;
