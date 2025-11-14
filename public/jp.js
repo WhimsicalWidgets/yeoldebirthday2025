@@ -9,6 +9,8 @@ const status = document.getElementById('status');
 const resetBtn = document.getElementById('resetBtn');
 const hero = document.getElementById('hero');
 const firstLetterEls = Array.from(document.querySelectorAll('.first'));
+const winDialog = document.getElementById('winDialog');
+const closeDialogBtn = document.getElementById('closeDialog');
 
 let attempts = [];
 
@@ -118,14 +120,10 @@ form.addEventListener('submit', e=>{
   if(guess === secret){
     setStatus('Congratulations — you revealed the hidden phrase!');
     input.disabled = true;
-    // start fullscreen fireworks immediately, no popup
-    startFireworks(3000).then(()=>{
-      hero.style.display = 'flex';
-      // ensure hero scrolls to top
-      hero.scrollTop = 0;
-      // mark all first letters green (final reveal)
-      firstLetterEls.forEach(el=> el.classList.add('green-letter'));
-    });
+    // mark all first letters green (final reveal)
+    firstLetterEls.forEach(el=> el.classList.add('green-letter'));
+    // show win dialog
+    winDialog.style.display = 'flex';
   } else if(attempts.length >= MAX_ATTEMPTS){
     setStatus('Out of attempts. The phrase was: "'+SECRET+'"');
     input.disabled = true;
@@ -143,9 +141,22 @@ resetBtn.addEventListener('click', ()=>{
   input.value='';
   setStatus('');
   render();
-  // hide hero and clear first-letter highlights
+  // hide hero and dialog, clear first-letter highlights
   hero.style.display = 'none';
+  winDialog.style.display = 'none';
   firstLetterEls.forEach(el=> el.classList.remove('green-letter'));
+});
+
+// Close dialog when clicking "Stay Here" button
+closeDialogBtn.addEventListener('click', ()=>{
+  winDialog.style.display = 'none';
+});
+
+// Close dialog when clicking outside of dialog content
+winDialog.addEventListener('click', (e)=>{
+  if(e.target === winDialog){
+    winDialog.style.display = 'none';
+  }
 });
 
 render();

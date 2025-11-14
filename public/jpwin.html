@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🎉 Congratulations! 🎉</title>
+  <style>
+    :root {
+      --bg: #fff9f4;
+      --green: #4caf50;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; padding: 0; }
+    body {
+      background: linear-gradient(180deg, rgba(255,250,246,1) 0%, rgba(255,244,238,1) 100%);
+      color: #2c2c2c;
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    .container {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .celebration-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .celebration-header h1 {
+      font-size: 3rem;
+      margin: 0 0 10px 0;
+      color: var(--green);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .celebration-header p {
+      font-size: 1.2rem;
+      margin: 0;
+      color: #666;
+    }
+    
+    .poem-container {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+      border-radius: 14px;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.15);
+      padding: 44px;
+      max-width: 900px;
+      width: 100%;
+      margin-bottom: 30px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .poem {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-size: 20px;
+      line-height: 1.45;
+      color: #2c2c2c;
+      text-align: left;
+      margin: 0;
+      white-space: pre-wrap;
+    }
+    
+    .first {
+      display: inline-block;
+      vertical-align: baseline;
+      margin-right: 4px;
+      font-weight: 800;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: #fff;
+      background: var(--green);
+      padding: 6px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 10px rgba(76,175,80,0.18), inset 0 -1px rgba(0,0,0,0.08);
+    }
+    
+    .back-button {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    
+    .back-button:hover {
+      background: #45a049;
+    }
+    
+    #fireworks-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .celebration-header h1 {
+        font-size: 2rem;
+      }
+      
+      .celebration-header p {
+        font-size: 1rem;
+      }
+      
+      .poem-container {
+        padding: 20px;
+        margin: 0 10px 30px 10px;
+      }
+      
+      .poem {
+        font-size: 16px;
+      }
+      
+      .container {
+        padding: 10px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .celebration-header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .poem {
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      
+      .first {
+        padding: 4px 6px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="fireworks-canvas"></div>
+  
+  <div class="container">
+    <div class="celebration-header">
+      <h1>🎉 Congratulations! 🎉</h1>
+      <p>You solved the puzzle! Here's your special birthday message:</p>
+    </div>
+    
+    <div class="poem-container">
+      <pre class="poem">"<span class="first">S</span>ending you the brightest wishes today.
+<span class="first">T</span>reasure every small, shining moment.
+<span class="first">A</span>rrive at the day with a hopeful smile.
+<span class="first">U</span>nderstand how loved you truly are.
+<span class="first">B</span>e ready to embrace gentle surprises.
+
+<span class="first">O</span>verflowing joy is what I hope fills your day.
+<span class="first">M</span>ay laughter surround you from morning to night.
+<span class="first">E</span>very moment should feel warm and cherished.
+<span class="first">T</span>reasure the smiles that come your way.
+<span class="first">H</span>appiness suits you beautifully.
+<span class="first">I</span> hope this year brings gentle magic.
+<span class="first">N</span>othing would delight me more than seeing you shine.
+<span class="first">G</span>o forward with all the confidence in your heart.
+
+<span class="first">S</span>avour every sweet surprise you receive.
+<span class="first">T</span>oday deserves to be unforgettable.
+<span class="first">A</span>ll your hopes deserve room to grow.
+<span class="first">U</span>plifting energy is headed your way.
+<span class="first">B</span>e ready for wonderful things.
+
+<span class="first">F</span>eel loved in every corner of your life.
+<span class="first">O</span>pen yourself to the joy you've earned.
+<span class="first">R</span>elish the warmth around you today.
+
+<span class="first">M</span>ay comfort walk beside you in the year ahead.
+<span class="first">Y</span>our kindness makes the world brighter.
+
+<span class="first">S</span>mile wide, because you deserve it.
+<span class="first">W</span>elcome the glow this new age brings.
+<span class="first">E</span>very wish you make is worth believing in.
+<span class="first">E</span>mbrace the moments that make your heart flutter.
+<span class="first">T</span>ake this day and make it beautifully yours."</pre>
+    </div>
+    
+    <a href="julianneelizabethmcpaulson.html" class="back-button">← Back to Puzzle</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+  <script>
+    // Initialize endless fireworks
+    const container = document.getElementById('fireworks-canvas');
+    
+    const fireworks = new Fireworks(container, {
+      hue: {
+        min: 0,
+        max: 360
+      },
+      delay: {
+        min: 20,
+        max: 40
+      },
+      rocketsPoint: {
+        min: 50,
+        max: 50
+      },
+      opacity: 0.7,
+      acceleration: 1.02,
+      friction: 0.97,
+      gravity: 1.5,
+      particles: 150,
+      traceLength: 3,
+      traceSpeed: 10,
+      explosion: 6,
+      intensity: 25,
+      flickering: 40,
+      lineStyle: 'round',
+      lineWidth: {
+        explosion: {
+          min: 1,
+          max: 3
+        },
+        trace: {
+          min: 1,
+          max: 2
+        }
+      },
+      brightness: {
+        min: 40,
+        max: 70
+      },
+      decay: {
+        min: 0.015,
+        max: 0.03
+      },
+      mouse: {
+        click: false,
+        move: false,
+        max: 1
+      }
+    });
+    
+    // Start fireworks immediately and keep them running
+    fireworks.start();
+    
+    // Optional: Add some visual variety by occasionally changing settings
+    setInterval(() => {
+      fireworks.stop();
+      setTimeout(() => {
+        // Slightly randomize settings for variety
+        const randomIntensity = 20 + Math.random() * 15;
+        const randomParticles = 120 + Math.random() * 60;
+        
+        fireworks.updateOptions({
+          intensity: randomIntensity,
+          particles: randomParticles
+        });
+        fireworks.start();
+      }, 100);
+    }, 8000); // Change every 8 seconds
+  </script>
+</body>
+</html>
